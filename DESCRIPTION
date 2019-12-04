@@ -1,0 +1,16 @@
+Package: casecontrol
+Title: k nearest neighbors matching of case-control data
+Version: 0.0.0.9000
+Authors@R: person("Beau", "Bruce", email = "lue7@cdc.gov", role = c("aut", "cre"))
+Description: k nearest neighbors matching of case-control data
+Depends: R (>= 3.3.2)
+License: Public domain. Work of US Government.
+Encoding: UTF-8
+LazyData: true
+Imports: dplyr,
+    tidyr,
+    igraph,
+    ggplot2,
+    cluster,
+    rlang
+RoxygenNote: 6.0.1
