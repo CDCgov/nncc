@@ -1,18 +1,3 @@
----
-output: github_document
----
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
-
 # nncc
 
 <!-- badges: start -->
@@ -31,18 +16,13 @@ Beau B. Bruce, MD, PhD <lue7@cdc.gov>; CDC/NCEZID/DFWED/EDEB
 
 ## Installation
 ``` r
-# Install nncc from CRAN
-install.packages("nncc")
-
-# Or the development version from GitHub
-devtools::install_github("bbbruce/nncc")
+devtools::install_github("cdcent/nncc")
 ```
 
 ## Vignettes
 
 If you have installed the `nncc` package, use `vignette("nncc")` or `browseVignettes("nncc")`.
 
-Otherwise, refer to https://cran.r-project.org/web/packages/nncc/vignettes/nncc.html.
 
 
 
