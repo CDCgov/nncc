@@ -1,0 +1,48 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# nncc
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+## About
+
+The `nncc` package is an R package that provides a tool to implement 
+nearest-neighbors matching for case-control data. Nearest-neighbors matching 
+may improve confounding control if case-control data include too many exposures
+to control in a logistic regression model.
+
+## Project Admin
+
+Beau B. Bruce, MD, PhD <lue7@cdc.gov>; CDC/NCEZID/DFWED/EDEB
+
+## Installation
+``` r
+# Install nncc from CRAN
+install.packages("nncc")
+
+# Or the development version from GitHub
+devtools::install_github("bbbruce/nncc")
+```
+
+## Vignettes
+
+If you have installed the `nncc` package, use `vignette("nncc")` or `browseVignettes("nncc")`.
+
+Otherwise, refer to https://cran.r-project.org/web/packages/nncc/vignettes/nncc.html.
+
+
+

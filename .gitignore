@@ -1,1 +1,6 @@
 .Rproj.user
+inst/doc
+src/init.o
+src/logistf.o
+src/nncc.dll
+.Rhistory
