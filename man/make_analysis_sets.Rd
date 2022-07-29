@@ -7,14 +7,25 @@
 make_analysis_sets(stratified_data, expvars, data, threshold)
 }
 \arguments{
-\item{expvars}{Character vector of exposure variable for each set in \code{stratifed_data}}
+\item{stratified_data}{List of stratified data sets, see
+\code{\link{make_knn_strata}}}
+
+\item{expvars}{Character vector of exposure variable for each set in
+\code{stratifed_data}}
 
 \item{data}{Original case control data}
 
-\item{threshold}{Maximum distance threshold for cases and controls}
-
-\item{stratifed_data}{List of stratified datasets, see \code{\link{make_knn_strata}}}
+\item{threshold}{Maximum distance threshold for cases and controls created by
+\code{\link{get_threshold}}}
+}
+\value{
+A list of data frames with the \code{length} of number of exposures
 }
 \description{
-make_analysis_sets(cc, strata2, cc_vars, threshhold_results$threshold)
+This helper function facilitates the implement the make_analysis_set() to
+each exposure.
+}
+\details{
+For more information, please refer to the vignette using
+  \code{browseVignettes("nncc")}.
 }

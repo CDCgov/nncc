@@ -17,3 +17,7 @@ Returns \code{csvfilename} to allow chaining
 \description{
 Plot the OR results
 }
+\details{
+For more information, please refer to the vignette using
+  \code{browseVignettes("nncc")}.
+}

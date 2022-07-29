@@ -2,7 +2,7 @@
 % Please edit documentation in R/calc_strata_or.R
 \name{calc_strata_or}
 \alias{calc_strata_or}
-\title{Calculate the pooled strata ORh}
+\title{Calculate the pooled strata OR}
 \usage{
 calc_strata_or(dfs, filter = TRUE, filterdata = NULL)
 }
@@ -14,8 +14,11 @@ calc_strata_or(dfs, filter = TRUE, filterdata = NULL)
 \item{filterdata}{Extra data to left join to the \code{dfs} for filtering}
 }
 \description{
-Calculate the pooled strata ORh
+Each case and matched controls form a stratum in the data set. This function
+is to calculate the pooled OR for the data set.
 }
 \details{
-Uses the M-H method unless there is only one strata for which the fisher.test is used
+Uses the M-H method unless there is only one strata for which the
+  fisher.test is used. For more information, please refer to the vignette
+  using \code{browseVignettes("nncc")}.
 }

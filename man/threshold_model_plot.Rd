@@ -4,10 +4,14 @@
 \alias{threshold_model_plot}
 \title{Show the prediction of the logistic regression model}
 \usage{
-threshold_model_plot(threshold_results)
+threshold_model_plot(threshold_results, p_threshold = 0.5)
 }
 \arguments{
 \item{threshold_results}{See \code{\link{get_threshold}}}
+
+\item{p_threshold}{The probability that the closest matching approach
+produces the closer matching relative to the random matching approach.
+The greater \code{p_threshold}, the smaller the threshold.}
 }
 \description{
 Show the prediction of the logistic regression model

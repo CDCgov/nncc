@@ -2,22 +2,32 @@
 % Please edit documentation in R/find_threshold.R
 \name{get_threshold}
 \alias{get_threshold}
-\title{What is the right threshold}
+\title{Identify the right threshold}
 \usage{
-get_threshold(data, vars, case_var = "case", seed = 1600)
+get_threshold(data, vars, case_var = "case", p_threshold = 0.5, seed = 1600)
 }
 \arguments{
 \item{data}{The dataset}
 
 \item{vars}{The variables to use for calculating distance}
 
-\item{use_cache}{Filename for \code{\link{cacheit}} or NULL if you do not want to cache the results}
+\item{case_var}{The name of the case identifier variable}
+
+\item{p_threshold}{The probability that the closest matching approach
+produces the closer matching relative to the random matching approach.
+The greater \code{p_threshold}, the smaller the threshold.}
+
+\item{seed}{A random seed.}
 }
 \description{
-What is the right threshold
+To find a threshold for distance to define controls that are qualified to be
+matched with a case.
 }
 \details{
-This function uses the logistic regression to predict by the distance
-whether a control is the closest (unique) match for each case vs.
-a random selection and returns the 50% threshold
+This function uses logistic regression to predict by the
+  distance whether a control is the closest (unique) match for each case vs.
+  a random selection and by default returns the 50% threshold
+
+  For more information, please refer to the vignette using
+  \code{browseVignettes("nncc")}.
 }

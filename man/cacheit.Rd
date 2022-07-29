@@ -7,19 +7,28 @@
 cacheit(name, code, dir = "cache", createdir = FALSE, clearcache = FALSE)
 }
 \arguments{
-\item{name}{Name of the file to create}
+\item{name}{Name of the file to create without extension}
 
 \item{code}{Expression of the code to execute and cache}
 
-\item{dir}{Name of directory for cache to be placed in the working directory}
+\item{dir}{Name of cache directory which should be placed in the working directory}
 
-\item{createdir}{Logical about whether to create the directory if it does not exist}
+\item{createdir}{Logical about whether to create the directory if it does not
+exist}
 
-\item{clearcache}{Recalculate the cache for this object}
+\item{clearcache}{Logical about whether to recalculate the cached .rds file
+for this object}
 }
 \value{
-Output of code, either freshly executed if the file exists or from the cache file
+Output of code, either freshly executed if the file does not exist or
+  or clearcache is TRUE otherwise returns result from the cache file
 }
 \description{
-Function to cache long operations
+Save results from code that takes a long time to execute to a .rds file
+if that file does not exist in the cache directory. If the file exists in the
+cache directory, that file will be loaded to memory without evaluating the code.
+}
+\details{
+For more information, please refer to the vignette using
+\code{browseVignettes("nncc")}.
 }

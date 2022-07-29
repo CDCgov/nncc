@@ -4,25 +4,38 @@
 \alias{make_analysis_set}
 \title{Make analysis set}
 \usage{
-make_analysis_set(stratified_data, var, data, maxdist = 0, maxcontrols = 20,
-  silent = FALSE)
+make_analysis_set(
+  var,
+  stratified_data,
+  data,
+  maxdist = 0,
+  maxcontrols = 20,
+  silent = FALSE
+)
 }
 \arguments{
+\item{var}{Character of current exposure variable in
+\code{\link{make_analysis_sets}}}
+
+\item{stratified_data}{Stratified dataset, see \code{\link{make_knn_strata}}}
+
 \item{data}{Original case control data}
 
 \item{maxdist}{Reject any controls more than maxdist from their case}
 
 \item{maxcontrols}{Maximum number of controls to keep per strata}
 
-\item{silent}{Suppress exposure info useful for *apply/loop implementations?}
-
-\item{stratifed_data}{Stratified dataset, see \code{\link{make_knn_strata}}}
-
-\item{expvar}{Character of current exposure variable in d}
+\item{silent}{Suppress exposure info useful for *apply/loop implementations}
+}
+\value{
+A list of data frames with the \code{length} of number of exposures.
 }
 \description{
-Allow each control to only appear once,
-keeping the closest case-control pair
-after merging exposure data and removing strata with 
-cases who are missing exposure information completely
+Set a maximum number of controls that are allowed to be matched to a case;
+ensure that matched case-control pairs have a distance closer than the
+predefined threshold; merge strata sharing same controls.
+}
+\details{
+For more information, please refer to the vignette using
+  \code{browseVignettes("nncc")}.
 }

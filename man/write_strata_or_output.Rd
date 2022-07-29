@@ -7,11 +7,11 @@
 write_strata_or_output(results, varnames, filename)
 }
 \arguments{
-\item{results}{Output of \code{\link{calc_strata_or}}}
+\item{results}{Output of \code{\link{test_mh}}}
+
+\item{varnames}{Vector of exposure variable names}
 
 \item{filename}{String of the filename to output to}
-
-\item{varnams}{Vector of exposure variable names}
 }
 \value{
 Returns the filename to allow chaining

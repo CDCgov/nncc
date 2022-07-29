@@ -1,27 +1,35 @@
+
 #' Make analysis set
-#' 
-#' Allow each control to only appear once,
-#' keeping the closest case-control pair
-#' after merging exposure data and removing strata with 
-#' cases who are missing exposure information completely
-#' @param stratifed_data Stratified dataset, see \code{\link{make_knn_strata}}
-#' @param expvar Character of current exposure variable in d
+#'
+#' Set a maximum number of controls that are allowed to be matched to a case;
+#' ensure that matched case-control pairs have a distance closer than the
+#' predefined threshold; merge strata sharing same controls.
+#'
+#' @details  For more information, please refer to the vignette using
+#'   \code{browseVignettes("nncc")}.
+#'
+#' @param stratified_data Stratified dataset, see \code{\link{make_knn_strata}}
+#' @param var Character of current exposure variable in
+#'   \code{\link{make_analysis_sets}}
 #' @param data Original case control data
 #' @param maxdist Reject any controls more than maxdist from their case
 #' @param maxcontrols Maximum number of controls to keep per strata
-#' @param silent Suppress exposure info useful for *apply/loop implementations?
+#' @param silent Suppress exposure info useful for *apply/loop implementations
 #' @import dplyr
+#' @importFrom stats setNames
 #' @export
-make_analysis_set <- function(stratified_data, var, data,
+#' @return A list of data frames with the \code{length} of number of exposures.
+
+make_analysis_set <- function(var, stratified_data, data,
                               maxdist = 0, maxcontrols = 20, silent = FALSE) {
     if(!silent) message(var)
-    stratified_data %>%
+    stratified_data[[var]] %>%
         ## merge in the exposure and remove any who are missing it
-        mutate(exp = data[[var]][idx]) %>% 
+        mutate(exp = data[[var]][idx]) %>%
         filter(!is.na(exp)) %>%
         ## remove strata that no longer have a case
-        group_by(strata) %>% 
-        left_join(summarize(., qcase = sum(case)), by = "strata") %>% 
+        group_by(strata) %>%
+        left_join(summarize(., qcase = sum(case)), by = "strata") %>%
         filter(qcase == 1) %>% select(-qcase) %>%
         ## remove controls / merge strata with same control patterns
         group_by(strata) %>%
@@ -48,18 +56,26 @@ make_analysis_set <- function(stratified_data, var, data,
 
 #' Make analysis datasets
 #'
-#' make_analysis_sets(cc, strata2, cc_vars, threshhold_results$threshold)
-#' @param stratifed_data List of stratified datasets, see \code{\link{make_knn_strata}}
-#' @param expvars Character vector of exposure variable for each set in \code{stratifed_data}
+#' This helper function facilitates the implement the make_analysis_set() to
+#' each exposure.
+#'
+#' @details  For more information, please refer to the vignette using
+#'   \code{browseVignettes("nncc")}.
+#'
+#' @param stratified_data List of stratified data sets, see
+#'   \code{\link{make_knn_strata}}
+#' @param expvars Character vector of exposure variable for each set in
+#'   \code{stratifed_data}
 #' @param data Original case control data
-#' @param threshold Maximum distance threshold for cases and controls
-#' @export
-make_analysis_sets <- function(stratified_data, expvars, data, threshold) { 
+#' @param threshold Maximum distance threshold for cases and controls created by
+#'   \code{\link{get_threshold}}
+#' @return A list of data frames with the \code{length} of number of exposures
+make_analysis_sets <- function(stratified_data, expvars, data, threshold) {
     mapply(make_analysis_set,
               stratified_data,
               expvars, # not other vars although other_vars was used to do the matching!
               SIMPLIFY = FALSE,
               MoreArgs = list(data = data,
-                              maxdist = threshold)) %>%  
+                              maxdist = threshold)) %>%
     setNames(expvars)
 }

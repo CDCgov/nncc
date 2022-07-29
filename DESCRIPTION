@@ -1,16 +1,34 @@
-Package: casecontrol
-Title: k nearest neighbors matching of case-control data
-Version: 0.0.0.9000
-Authors@R: person("Beau", "Bruce", email = "lue7@cdc.gov", role = c("aut", "cre"))
-Description: k nearest neighbors matching of case-control data
+Package: nncc
+Title: Nearest Neighbors Matching of Case-Control Data
+Version: 1.0.0
+Authors@R: c(person("Beau", "Bruce", email = "lue7@cdc.gov", role = c("aut", "cre")),
+             person("Zhaohui", "Cui", email = "nyv5@cdc.gov", role = c("aut")),
+             person("Georg", "Heinze", role="cph", comment = "Author of included logistf package"),
+             person("Meinhard", "Ploner", role="cph", comment = "Author of included logistf package"),
+             person("Lena", "Jiricka", role="cph", comment = "Author of included logistf package")
+             )
+Description: This package calculates the distances (Gower, by default) between cases and controls using all confounders for a given exposure. Then uses the distances and a data-driven threshold to identify k nearest neighbors matching controls for each case. Each control is used once. Cases or controls that are not matched are excluded from the analysis.
 Depends: R (>= 3.3.2)
-License: Public domain. Work of US Government.
+License: GPL (>= 3) + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: dplyr,
+Imports: 
+    dplyr,
+    furrr,
     tidyr,
     igraph,
     ggplot2,
     cluster,
-    rlang
-RoxygenNote: 6.0.1
+    rlang,
+    mgcv,
+    stats,
+    survival,
+    formula.tools,
+    mice
+RoxygenNote: 7.1.2
+Suggests: 
+    rmarkdown,
+    knitr,
+    future,
+    future.batchtools
+VignetteBuilder: knitr
