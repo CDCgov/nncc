@@ -33,7 +33,7 @@ If you have installed the `nncc` package, use `vignette("nncc")` or
 `browseVignettes("nncc")`.
 
 Otherwise, refer to
-<https://cran.r-project.org/web/packages/nncc/vignettes/nncc.html>.
+<https://CRAN.R-project.org/package=nncc/vignettes/nncc.html>.
 
 ## General disclaimer
 
@@ -71,7 +71,7 @@ information. All material and community participation is covered by the
 and [Code of
 Conduct](https://github.com/CDCgov/template/blob/master/code-of-conduct.md).
 For more information about CDC’s privacy policy, please visit
-[http://www.cdc.gov/other/privacy.html](https://www.cdc.gov/other/privacy.html).
+[https://www.cdc.gov/other/privacy.html](https://www.cdc.gov/other/privacy.html).
 
 ## Contributing Standard Notice
 
@@ -82,19 +82,19 @@ tutorial](https://help.github.com/articles/set-up-git)). By contributing
 to this project, you grant a world-wide, royalty-free, perpetual,
 irrevocable, non-exclusive, transferable license to all users under the
 terms of the [Apache Software License
-v2](http://www.apache.org/licenses/LICENSE-2.0.html) or later.
+v2](https://www.apache.org/licenses/LICENSE-2.0.html) or later.
 
 All comments, messages, pull requests, and other submissions received
 through CDC including this GitHub page may be subject to applicable
 federal law, including but not limited to the Federal Records Act, and
-may be archived. Learn more at <http://www.cdc.gov/other/privacy.html>.
+may be archived. Learn more at <https://www.cdc.gov/other/privacy.html>.
 
 ## Records Management Standard Notice
 
 This repository is not a source of government records, but is a copy to
 increase collaboration and collaborative potential. All government
 records will be published through the [CDC web
-site](http://www.cdc.gov).
+site](https://www.cdc.gov).
 
 ## Additional Standard Notices
 

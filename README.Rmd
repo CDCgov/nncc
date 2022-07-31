@@ -42,7 +42,9 @@ devtools::install_github("bbbruce/nncc")
 
 If you have installed the `nncc` package, use `vignette("nncc")` or `browseVignettes("nncc")`.
 
-Otherwise, refer to https://cran.r-project.org/web/packages/nncc/vignettes/nncc.html.
+Otherwise, refer to https://CRAN.R-project.org/package=nncc/vignettes/nncc.html.
+
+
 
 ## General disclaimer 
 

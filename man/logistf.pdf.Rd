@@ -45,16 +45,15 @@ logistpl.control(maxstep, maxit, maxhs, lconv, xconv, ortho, pr)}}
 \item{b}{A bound for the lower or upper limit}
 
 \item{beta}{Regression coefficients for \code{colnames} of model matrix
-\code{x} returned by \code{logistf::logistf()}}
+\code{x} returned by \code{logistf}}
 
 \item{loglik}{The (penalized) log-likelihood of the full models}
 
 \item{fit}{Output of \code{logistf.fit}}
 
-\item{old}{Corresponding to the \code{legacy} argument in
-\code{\link[logistf]{CLIP.confint}}}
+\item{old}{Corresponding to the \code{legacy} argument in \code{CLIP.confint}}
 }
 \description{
-Please cite the original function \code{\link[logistf]{CLIP.confint}} for
+Please cite the original function \code{[CLIP.confint](https://CRAN.R-project.org/package=logistf/index.html])} for
 publication.
 }

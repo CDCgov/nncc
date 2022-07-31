@@ -11,7 +11,7 @@ test_mh(case, exp, strata)
 
 \item{exp}{The exposure statuses}
 
-\item{strata}{The strata idetifiers}
+\item{strata}{The strata identifiers}
 }
 \description{
 Calculate odds ratios using the M-H method when the matched dataset has more

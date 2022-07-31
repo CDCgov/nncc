@@ -51,7 +51,7 @@ calc_strata_or <- function(dfs, filter = TRUE, filterdata = NULL) {
 #'
 #' @param case The case statuses
 #' @param exp  The exposure statuses
-#' @param strata The strata idetifiers
+#' @param strata The strata identifiers
 #' @importFrom stats fisher.test mantelhaen.test
 #' @export
 test_mh <- function(case, exp, strata) {
