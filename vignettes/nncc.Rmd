@@ -246,8 +246,8 @@ results_clogit <- future_map(data_final, function(dfm){clogit(case ~ exp + strat
 results_clogit[["exp27"]] %>% summary() %>% `$`(conf.int)
 ```
 
-### 5.3 Pernalized logistic regression
-When the number of participants being exposed is small, [Firth's bias-Reduced penalized-likelihood logistic regression](https://cran.r-project.org/web/packages/logistf/index.html) can be used (1). 
+### 5.3 Penalized logistic regression
+When the number of participants being exposed is small, [Firth's bias-Reduced penalized-likelihood logistic regression](https://CRAN.R-project.org/package=logistf/index.html) can be used (1). 
 
 ```{r, warning=FALSE}
 # regression coefficients
@@ -325,7 +325,7 @@ because they could have different numbers of strata.
 
 Thus, we modified the `logistf::CLIP.confint()` to accommodate our method. 
 The modified function is included in the `nncc` package and is called 
-`CLIP.confint.difflevel()`. Please cite the original paper (4) and/or the [logistf package](https://cran.r-project.org/web/packages/logistf/index.html) if you use 
+`CLIP.confint.difflevel()`. Please cite the original paper (4) and/or the [logistf package](https://CRAN.R-project.org/package=logistf/index.html) if you use 
 this modified function for publication.
 
 
@@ -349,7 +349,7 @@ strata1 <- cacheit("abc",
 ## 9. Run the analysis on your local computer or HPC
 
 Considering the intensive computation for this approach, 
-especially when multiple imputation is conducted, a [future](https://cran.r-project.org/web/packages/future/vignettes/future-1-overview.html) 
+especially when multiple imputation is conducted, a [future](https://CRAN.R-project.org/package=future/vignettes/future-1-overview.html) 
 can be used to accelerate the analysis. Below we briefly introduce the use of futures on your local multi-core computer and HPC.
 
 ### 9.1 local computer

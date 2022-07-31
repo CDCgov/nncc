@@ -2,7 +2,7 @@
 % Please edit documentation in R/CLIP.confint_difflevel.R
 \name{CLIP.confint.difflevel}
 \alias{CLIP.confint.difflevel}
-\title{Combine confidence interval for \code{logistf::logistf()} after multiple imputation}
+\title{Combine confidence interval for \code{logistf} after multiple imputation}
 \usage{
 CLIP.confint.difflevel(
   obj = NULL,
@@ -10,7 +10,7 @@ CLIP.confint.difflevel(
   data,
   firth = TRUE,
   weightvar = NULL,
-  control = logistf:::logistf.control(),
+  control = logistf.control(),
   ci.level = c(0.025, 0.975),
   pvalue = TRUE,
   offset = NULL,
@@ -47,20 +47,20 @@ data sets.}
 \item{legacy}{If \code{TRUE}, will use pure R code for all model fitting. Can be slow. Not recommended.}
 }
 \description{
-The function was modified from \code{\link[logistf]{CLIP.confint}} to combine
+The function was modified from \code{[CLIP.confint](https://CRAN.R-project.org/package=logistf/index.html])} to combine
 results from m imputed data sets that have different structures (e.g., a
 covariate in a model have different levels across different imputed data
 sets) on April 15, 2022.
 }
 \details{
-The formula in \code{\link[logistf]{logistf}} must be written as variable of
+The formula in \code{[logistf](https://CRAN.R-project.org/package=logistf/index.html])} must be written as variable of
 interest followed by covariates that have different levels across different
 imputed data sets.
 
 For more information, please refer to the vignette using
 \code{browseVignettes("nncc")} and the original function
-\code{\link[logistf]{CLIP.confint}}.
+\code{[CLIP.confint](https://CRAN.R-project.org/package=logistf/index.html])}.
 
-Please cite the original function \code{\link[logistf]{CLIP.confint}} for
+Please cite the original function \code{[CLIP.confint](https://CRAN.R-project.org/package=logistf/index.html])} for
 publication.
 }

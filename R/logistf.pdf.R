@@ -1,6 +1,6 @@
 #' Likehood-ratio test of two models
 #'
-#' Please cite the original function \code{\link[logistf]{CLIP.confint}} for
+#' Please cite the original function \code{[CLIP.confint](https://CRAN.R-project.org/package=logistf/index.html])} for
 #' publication.
 #' @param x A model matrix returned by \code{\link[stats]{model.matrix}}
 #' @param y The response of a model frame returned by \code{\link[stats]{model.response}}
@@ -17,11 +17,10 @@
 #' @param offset An optional offset variable
 #' @param b A bound for the lower or upper limit
 #' @param beta Regression coefficients for \code{colnames} of model matrix
-#' \code{x} returned by \code{logistf::logistf()}
+#' \code{x} returned by \code{logistf}
 #' @param loglik The (penalized) log-likelihood of the full models
 #' @param fit Output of \code{logistf.fit}
-#' @param old Corresponding to the \code{legacy} argument in
-#' \code{\link[logistf]{CLIP.confint}}
+#' @param old Corresponding to the \code{legacy} argument in \code{CLIP.confint}
 #' @importFrom  stats pchisq
 
 logistf.pdf <- function (x, y, pos, firth = TRUE, weight, control, plcontrol,

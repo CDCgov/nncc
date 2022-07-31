@@ -24,7 +24,7 @@ sex2
 }
 \description{
 This data set deals with urinary tract infection in sexually active college women,
-along with covariate information on age an contraceptive use.
+along with covariate information on age and contraceptive use.
 The variables are all binary and coded in 1 (condition is present) and 0 (condition is absent).
 }
 \references{

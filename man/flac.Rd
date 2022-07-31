@@ -69,11 +69,11 @@ ratios.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{formula}: With formula and data
+\item \code{flac(formula)}: With formula and data
 
-\item \code{logistf}: With logistf object
+\item \code{flac(logistf)}: With logistf object
+
 }}
-
 \examples{
 #With formula and data:
 data(sex2)
