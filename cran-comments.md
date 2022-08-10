@@ -1,6 +1,7 @@
 # Release summary
 
-This is our first submission of this package.
+This is a resubmission of our first submission of this package which
+reduces the running time of the vignette compilation.
 
 # R CMD check results
 
