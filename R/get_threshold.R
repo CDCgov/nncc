@@ -17,6 +17,11 @@
 #'   produces the closer matching relative to the random matching approach.
 #'   The greater \code{p_threshold}, the smaller the threshold.
 #' @param seed A random seed.
+#' @return A list with items:
+#'    \item{threshold}{The numeric threshold chosen}
+#'    \item{modeldata}{The data used to fit the logistic regression model}
+#'    \item{strata}{The strata made by make_knn_strata}
+#'    \item{model}{The fit logisitic regression model}
 #' @importFrom igraph graph_from_edgelist set_edge_attr as_ids V V<-
 #'   max_bipartite_match
 #' @importFrom stats glm predict
@@ -54,6 +59,7 @@ get_threshold <- function(data, vars, case_var = "case", p_threshold = 0.50, see
 #' @param threshold_results See \code{\link{get_threshold}}
 #' @import dplyr
 #' @importFrom graphics plot lines abline
+#' @return The ggplot showing the distances of cases matched to their nearest neighbor vs. a random control
 #' @export
 distance_density_plot <- function(threshold_results) {
   ggplot(data = threshold_results$modeldata %>% mutate(closest = factor(closest, levels = unique(closest))), mapping = aes(x = dist, linetype = closest)) +
@@ -68,6 +74,7 @@ distance_density_plot <- function(threshold_results) {
 
 #' Show the prediction of the logistic regression model
 #' @param threshold_results See \code{\link{get_threshold}}
+#' @return The ggplot showing the threshold logistic regression model
 #' @inheritParams get_threshold
 #' @import dplyr
 #' @importFrom graphics plot lines abline text
@@ -91,7 +98,9 @@ threshold_model_plot <- function(threshold_results, p_threshold = 0.50) {
 #' @param casevar The variable that defines cases vs. controls
 #' @param stratavar The variable that defines the strata
 #' @param threshold_results See \code{\link{get_threshold}}
-#' @return Side effect of plot with a table showing % exceeding threshold in original data
+#' @return An list with items:
+#'    \item{plot_density}{The ggplot displayed}
+#'    \item{prop_distance_gt_threshold}{A table showing proportion of pairs exceeding numeric threshold chosen}
 #' @import dplyr
 #' @importFrom stats density
 #' @importFrom graphics plot abline

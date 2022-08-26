@@ -331,8 +331,7 @@ this modified function for publication.
 When the number of exposures of interest or the sample size of the original 
 case-control study is large, it may be time-consuming for some analyses 
 (e.g., strata creation). You may not want to have the same code evaluated again 
-when you run your analysis later. The helper function `cacheit()` caches the results for you. Specifically, before your run `cacheit()`, create a folder named "cache" in the working directory of your project. When you run `cacheit("abc", code)` for the first time, it saves the 
-results of your code as abc.rds in the `cache` folder; next time, 
+when you run your analysis later. The helper function `cacheit()` caches the results for you. Specifically, before your run `cacheit()`, create a folder named "cache" in the working directory of your project. When you run `cacheit("abc", code)` for the first time, it saves the results of your code as abc.rds in the `cache` folder; next time, 
 when you run the code, it directly read the saved results in without 
 evaluating your code.
 
@@ -377,7 +376,7 @@ The template file should be saved as `batchtools.sge.tmpl` in your current
 working directory or as `.batchtools.sge.tmpl` in your home directory on the HPC. 
 Below is an example of a template file for Sun Grid Engine.
 
-```{r, eval=FALSE, comment = ""}
+```
 #!/bin/bash
 
 ## name of the job

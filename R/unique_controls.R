@@ -2,6 +2,7 @@
 #'
 #' @param stratifieddata See \code{\link{make_knn_strata}} and
 #'   \code{\link{make_analysis_set}}.
+#' @return A tibble after it has been examined and filtered for duplicate controls
 #' @export
 unique_controls <- function(stratifieddata) {
     stratifieddata %>%

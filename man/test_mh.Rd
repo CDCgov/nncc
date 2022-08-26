@@ -13,6 +13,9 @@ test_mh(case, exp, strata)
 
 \item{strata}{The strata identifiers}
 }
+\value{
+The list of statistical results
+}
 \description{
 Calculate odds ratios using the M-H method when the matched dataset has more
 than 1 stratum, and using the Fisher's exact test when the matched dataset

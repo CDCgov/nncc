@@ -7,7 +7,9 @@ Authors@R: c(person("Beau", "Bruce", email = "lue7@cdc.gov", role = c("aut", "cr
              person("Meinhard", "Ploner", role="cph", comment = "Author of included logistf package"),
              person("Lena", "Jiricka", role="cph", comment = "Author of included logistf package")
              )
-Description: Provides nearest-neighbors matching and analysis of case-control data. 
+Description: Provides nearest-neighbors matching and 
+    analysis of case-control data. Cui, Z., Marder, E. P., Click, E. S., 
+    Hoekstra, R. M., & Bruce, B. B. (2022) <doi:10.1097/EDE.0000000000001504>.
 Depends: R (>= 3.3.2)
 License: GPL (>= 3)
 Encoding: UTF-8

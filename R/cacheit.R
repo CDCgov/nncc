@@ -17,7 +17,8 @@
 #' @return Output of code, either freshly executed if the file does not exist or
 #'   or clearcache is TRUE otherwise returns result from the cache file
 #' @export
-cacheit <- function(name, code, dir = "cache", createdir = FALSE, clearcache = FALSE) {
+cacheit <- function(name, code, dir, createdir = FALSE, clearcache = FALSE) {
+  if(missing(dir)) stop("Must specify directory in order to write / read")
   if(createdir & !dir.exists(dir)) dir.create(dir)
   if(!dir.exists(dir)) stop("Cache directory must exist, set createdir to TRUE to create")
   fn <- paste0(getwd(), "/", dir, "/", name,".rds")

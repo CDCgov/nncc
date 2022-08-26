@@ -4,7 +4,7 @@
 \alias{cacheit}
 \title{Function to cache long operations}
 \usage{
-cacheit(name, code, dir = "cache", createdir = FALSE, clearcache = FALSE)
+cacheit(name, code, dir, createdir = FALSE, clearcache = FALSE)
 }
 \arguments{
 \item{name}{Name of the file to create without extension}

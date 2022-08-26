@@ -19,6 +19,18 @@
 #' @param variable Must be used to include variables of interest; each of
 #'   variable of interest must have the same levels across different imputed
 #'   data sets.
+#' @return An object of class \code{CLIP.confint}, with items:
+#'    \item{variable}{The variable(s) which were analyzed}
+#'    \item{estimate}{The pooled estimate (average over imputations)}
+#'    \item{ci}{The confidence interval(s)}
+#'    \item{pvalue}{The p-value(s)}
+#'    \item{imputations}{The number of imputed datasets}
+#'    \item{ci.level}{The confidence level (input)}
+#'    \item{bound.lo}{The bounds used for finding the lower confidence limit; usually not of interest. May be useful for error-tracing.}
+#'    \item{bound.up}{The bounds used for finding the upper confidence limit}
+#'    \item{iter}{The number of iterations (for each variable and each tail)}
+#'    \item{call}{The call object}
+#'
 #' @inheritParams CLIP.confint
 #' @importFrom stats as.formula model.matrix model.response model.frame uniroot
 #' @importFrom graphics grid

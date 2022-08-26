@@ -24,7 +24,7 @@ Beau B. Bruce, MD, PhD <lue7@cdc.gov>; CDC/NCEZID/DFWED/EDEB
 install.packages("nncc")
 
 # Or the development version from GitHub
-devtools::install_github("bbbruce/nncc")
+devtools::install_github("CDCgov/nncc")
 ```
 
 ## Vignettes

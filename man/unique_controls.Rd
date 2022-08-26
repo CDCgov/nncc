@@ -10,6 +10,9 @@ unique_controls(stratifieddata)
 \item{stratifieddata}{See \code{\link{make_knn_strata}} and
 \code{\link{make_analysis_set}}.}
 }
+\value{
+A tibble after it has been examined and filtered for duplicate controls
+}
 \description{
 Ensures controls are unique to avoid possible pseudoreplication issues
 }
