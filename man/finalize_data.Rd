@@ -14,6 +14,9 @@ finalize_data(dfs, filter = TRUE, filterdata = NULL)
 
 \item{filterdata}{Extra data to left join to the \code{dfs} for filtering}
 }
+\value{
+A list of data frames
+}
 \description{
 Ensures that a control retained in a data frame is used once and remove strata
 without any case or any control. In this process, priority is first given

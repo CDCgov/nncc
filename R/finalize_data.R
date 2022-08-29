@@ -12,6 +12,7 @@
 #'   \code{\link{make_analysis_sets}}
 #' @param filter Filter statement to apply
 #' @param filterdata Extra data to left join to the \code{dfs} for filtering
+#' @return A list of data frames
 #' @import dplyr rlang
 #' @importFrom stats setNames
 #' @export
