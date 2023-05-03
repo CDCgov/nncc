@@ -1,13 +1,7 @@
 # Release summary
 
-This is a resubmission of our first submission of this package in response
-to the following requests from Victoria Wimmer. 
-
-I think you missed to add \value in one of your .Rd files. Please also add it there as you did in the others.
-Missing Rd-tags:
-      finalize_data.Rd: \value
-
->>> Apologies.  I have fixed now.
+This is a patch fix submission with a deadline of 2023-05-05 in response to 
+an e-mail dated 2023-04-21 from Prof Brian Ripley about compiler warnings.  In addition, we have fixed a minor bug in a function that had an incorrect assumption about the internal data structure of our results object.
 
 # R CMD check results
 
