@@ -46,9 +46,9 @@ CLIP.confint.difflevel <- function (obj = NULL, variable = NULL, data, firth = T
   if (!is.null(obj)) {
       fits <- obj
       if (missing(data)){
-        if (is.null(fits[[1]]$data)){
-            stop("Please provide data either as list of imputed data sets or by calling logistf on the imputed data sets with dataout=TRUE.\\n")}
-        else data <- lapply(1:length(fits), function(X) fits[[X]]$data)}
+        if (is.null(fits[[1]]$model)){
+            stop("Please provide data either as list of imputed data sets or by calling logistf on the imputed data sets with model=TRUE.\\n")}
+        else data <- lapply(1:length(fits), function(X) fits[[X]]$model)}
       else {data <- data}
 
       formula <- as.formula(fits[[1]]$call$formula)

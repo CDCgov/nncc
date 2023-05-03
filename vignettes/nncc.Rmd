@@ -254,13 +254,13 @@ coef_logistf <- future_map(data_final, function(dfm){
   if(length(unique(dfm[["strata"]])) == 1) {
         x <- model.matrix(case ~ exp, data = dfm)
         plconf <- grep("exp", colnames(x))
-        o <- logistf(case ~ exp, data = dfm, plconf = plconf, dataout = FALSE) %>%
-                 `[`(c("terms", "coefficients", "ci.lower", "ci.upper", "prob"))
+        o <- logistf(case ~ exp, data = dfm, plconf = plconf) %>%
+                 `[`(c("terms", "coefficients", "ci.lower", "ci.upper", "prob", "call", "loglik", "model"))
     } else {
         x <- model.matrix(case ~ exp + strata, data = dfm)
         plconf <- grep("exp", colnames(x))
-        o <- logistf(case ~ exp + strata, data = dfm, plconf = plconf, dataout = FALSE) %>%
-                 `[`(c("terms", "coefficients", "ci.lower", "ci.upper", "prob"))
+        o <- logistf(case ~ exp + strata, data = dfm, plconf = plconf) %>%
+                 `[`(c("terms", "coefficients", "ci.lower", "ci.upper", "prob", "call", "loglik", "model"))
     }
 },
 .progress = TRUE)
