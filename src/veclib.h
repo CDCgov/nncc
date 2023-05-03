@@ -3,8 +3,8 @@
 
 #include <math.h>						// powf, ...
 #include <R.h>
-#include <Rdefines.h>				
-#include "memory.h"					// malloc; free 
+#include <Rdefines.h>
+#include "memory.h"					// malloc; free
 #include <R_ext/Linpack.h>	// inverse; choleski; determinant
 #include "Rmath.h"					// random numbers; distributions
 
@@ -47,7 +47,7 @@ void print(double *X, long k, long m)
 void copyCols(double *X, double *res, long n, long *inds, long n_inds)
 {
 	for(long i=0; i < n_inds; i++)
-		memcpy(res + n * sizeof(double) * i, 
+		memcpy(res + n * sizeof(double) * i,
 					 X + n * sizeof(double) * inds[i],
 					 n * sizeof(double));
 }
@@ -70,7 +70,7 @@ void XtY(double *X, double *Y, double *res, long k, long m, long n)
 {
 	long i, j, ind;
 	double tmp;
-	
+
 	for(i=0; i < m; i++)
 		for(j=0; j < n; j++) {
 			tmp = 0.0;
@@ -86,7 +86,7 @@ void XtXsym(double *X, double *res, long *k_l)
 	long k = (long)*k_l;
 	long i, j, ind;
 	double tmp;
-	
+
 	for(i=0; i < k; i++)
 		for(j=i; j < k; j++) {
 			tmp = 0.0;
@@ -101,7 +101,7 @@ void XtXasy(double *X, double *res, long k, long m)
 {
 	long i, j, ind;
 	double tmp;
-	
+
 	for(i=0; i < m; i++)
 		for(j=i; j < m; j++) {
 			tmp = 0.0;
@@ -127,8 +127,8 @@ void linpack_inv_det(double *A_doub, long *size, double *logdet)
 {
   int i, j , c1, c2, ok, N, n;
   double *A, *det;
-  n = (long) *size;                        // type-cast  
-  N = n * n; 
+  n = (long) *size;                        // type-cast
+  N = n * n;
   if (NULL == (A = (double *) R_alloc(N, sizeof(double))))
   {
 	 error("no memory available\n");
@@ -137,32 +137,32 @@ void linpack_inv_det(double *A_doub, long *size, double *logdet)
   {
 	 error("no memory available\n");
   }
-	
+
   /* transpose matrix for fortran (reverse order) */
   for (i=0; i < n; i++)
     for (j=0; j < n; j++)
       A[j + n * i] = A_doub[j + i * n];
   c1 = n;
   c2 = n;
-  
+
   /* factorize a symmetric matrix */
   F77_NAME(dpofa)(A, &c1, &c2, &ok);
-  //Rprintf("ok=%d\n", ok);                                                                                                           
-  
+  //Rprintf("ok=%d\n", ok);
+
   /* compute the determinant and inverse of a certain
 	 double precision symmetric positive definite matrix
 	 as result A is upper half of inverse */
   ok = 11; // calc both determ+inverse
   F77_NAME(dpodi)(A, &c1, &c2, det, &ok);
-  //Rprintf("ok=%d\n", ok);  
-  
-  // copy result                                                       
+  //Rprintf("ok=%d\n", ok);
+
+  // copy result
   for (i=0; i < n; i++) {
-    A_doub[(n+1) * i] = A[(n+1) * i];            // diagonal elements  
+    A_doub[(n+1) * i] = A[(n+1) * i];            // diagonal elements
     for(j=0; j < i; j++)
       A_doub[i + j*n] = A_doub[j + i*n] = A[i*n + j];
   }
-	
+
   *logdet = log(det[0]) +  M_LN10 * det[1];
 }
 
@@ -171,9 +171,9 @@ void linpack_det(double *A_doub, long *size, double *logdet)
 {
   int i, j , c1, c2, ok, N, n;
   double *A, *det;
-  
-  n = (long) *size;                        // type-cast                                                                               
-  N = n * n; 
+
+  n = (long) *size;                        // type-cast
+  N = n * n;
   if(NULL == (A = (double *) R_alloc(N, sizeof(double))))
   {
 	 error("no memory available\n");
@@ -182,25 +182,25 @@ void linpack_det(double *A_doub, long *size, double *logdet)
   {
 	 error("no memory available\n");
   }
-	
+
   /* transpose matrix for fortran (reverse order) */
   for (i=0; i < n; i++)
     for (j=0; j < n; j++)
       A[j + n * i] = A_doub[j + i * n];
   c1 = n;
   c2 = n;
-  
+
   /* factorize a symmetric matrix */
   F77_NAME(dpofa)(A, &c1, &c2, &ok);
-  //Rprintf("ok=%d\n", ok);                                                                                                           
-  
+  //Rprintf("ok=%d\n", ok);
+
   /* compute the determinant and inverse of a certain
 	 double precision symmetric positive definite matrix
 	 as result A is upper half of inverse */
   ok = 10; // calc determ only
   F77_NAME(dpodi)(A, &c1, &c2, det, &ok);
-  //Rprintf("ok=%d\n", ok);  
-	
+  //Rprintf("ok=%d\n", ok);
+
   *logdet = log(det[0]) +  M_LN10 * det[1];
 }
 
@@ -209,10 +209,10 @@ void linpack_inv(double *A_doub, long *size)
 {
   int i, j , c1, c2, ok, N, n;
   double *A, *det;
-  //char uplo = 'L';                // Lower or Upper tri                                                                  
-	
-  n = (long) *size;                        // type-cast                                                                               
-  N = n * n; 
+  //char uplo = 'L';                // Lower or Upper tri
+
+  n = (long) *size;                        // type-cast
+  N = n * n;
   if(NULL == (A = (double *) R_alloc(N, sizeof(double))))
   {
 	 error("no memory available\n");
@@ -221,28 +221,28 @@ void linpack_inv(double *A_doub, long *size)
   {
 	 error("no memory available\n");
   }
-	
+
   /* transpose matrix for fortran (reverse order) */
   for (i=0; i < n; i++)
     for (j=0; j < n; j++)
       A[j + n * i] = A_doub[j + i * n];
   c1 = n;
   c2 = n;
-  
+
   /* factorize a symmetric matrix */
   F77_NAME(dpofa)(A, &c1, &c2, &ok);
-  //Rprintf("ok=%d\n", ok);                                                                                                           
-  
+  //Rprintf("ok=%d\n", ok);
+
   /* compute the determinant and inverse of a certain
 	 double precision symmetric positive definite matrix
 	 as result A is upper half of inverse */
   ok = 01; // calc inverse only
   F77_NAME(dpodi)(A, &c1, &c2, det, &ok);
-  //Rprintf("ok=%d\n", ok);  
-  
-  // copy result                                                       
+  //Rprintf("ok=%d\n", ok);
+
+  // copy result
   for (i=0; i < n; i++) {
-    A_doub[(n+1) * i] = A[(n+1) * i];            // diagonal elements  
+    A_doub[(n+1) * i] = A[(n+1) * i];            // diagonal elements
     for(j=0; j < i; j++)
       A_doub[i + j*n] = A_doub[j + i*n] = A[i*n + j];
   }
@@ -253,10 +253,10 @@ void linpack_choleski(double *A_doub, long *size)
 {
   int i, j , c1, c2, job, ok, N, n, *jpvt;
   double *A, *work;
-  //char uplo = 'L';                // Lower or Upper tri                                                                  
-	
-  n = (int) *size;                        // type-cast                                                                               
-  N = n * n; 
+  //char uplo = 'L';                // Lower or Upper tri
+
+  n = (int) *size;                        // type-cast
+  N = n * n;
   if (NULL == (A = (double *) R_alloc(N, sizeof(double))))
   {
 	 error("no memory available\n");
@@ -269,7 +269,7 @@ void linpack_choleski(double *A_doub, long *size)
   {
 	 error("no memory available\n");
   }
-	
+
   /* transpose matrix for fortran (reverse order) */
   for (i=0; i < n; i++)
     for (j=0; j < n; j++)
@@ -277,41 +277,41 @@ void linpack_choleski(double *A_doub, long *size)
   c1 = n;
   c2 = n;
 	job = 0; // if job .eq. 0, no pivoting is done; else yes !!??
-  
+
   /* dchdc computes the cholesky decomposition of a positive definite
 	 matrix.  a pivoting option allows the user to estimate the
 	 condition of a positive definite matrix or determine the rank
 	 of a positive semidefinite matrix. */
   F77_NAME(dchdc)(A, &c1, &c2, work, jpvt, &job, &ok);
-  //Rprintf("ok=%d\n", ok);                                                                                                           
+  //Rprintf("ok=%d\n", ok);
 	//for(i=0; i < N; i++) Rprintf("%d \t %e \n", i, A[i]);
-  
-  // copy result                                                       
+
+  // copy result
   for (i=0; i < n; i++) {
-    A_doub[(n+1) * i] = A[(n+1) * i];            // diagonal elements  
+    A_doub[(n+1) * i] = A[(n+1) * i];            // diagonal elements
     for(j=0; j < i; j++) {
 			A_doub[j + n * i] = A[j + i * n];		// upper element
 			A_doub[i + n * j] = 0.0;						// lower element
 		}
   }
-	
+
 
 }
 
 
-void testRmath()
+void testRmath(void)
 {
 	double res;
 	res = R_pow(3.0, 2.0);
 	Rprintf("3^2 is %f. \n", res);
-	
+
 	// dnorm : x, mean = 0, sd = 1, log = FALSE
 	res = dnorm(1.0, 0.0, 1.0, 0);
 	Rprintf("normal density on 1 is %f. \n", res);
 }
 
 void summe(double *x, long *n, double *res)
-{	
+{
 	long i;
 	*res = 0 ;
 	for (i = 0; i < *n; i++)
