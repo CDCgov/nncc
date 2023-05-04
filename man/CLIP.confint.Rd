@@ -59,23 +59,23 @@ An object of class \code{CLIP.confint}, with items:
    \item{call}{The call object}
 }
 \description{
-This function implements the new combination of likelihood profiles (CLIP) method described in 
-Heinze, Ploner and Beyea (2013). This method is useful for computing confidence intervals for 
-parameters after multiple imputation of data sets, if the normality assumption on parameter estimates and consequently the validity of applying Rubin's rules (pooling of variances) is in doubt. It 
-consists of combining the profile likelihoods into a posterior. The function CLIP.confint searches 
-for those values of a regression coefficient, at which the cumulative distribution function of the 
-posterior is equal to the values specified in the argument ci.level (usually 0.025 and 0.975). The 
+This function implements the new combination of likelihood profiles (CLIP) method described in
+Heinze, Ploner and Beyea (2013). This method is useful for computing confidence intervals for
+parameters after multiple imputation of data sets, if the normality assumption on parameter estimates and consequently the validity of applying Rubin's rules (pooling of variances) is in doubt. It
+consists of combining the profile likelihoods into a posterior. The function CLIP.confint searches
+for those values of a regression coefficient, at which the cumulative distribution function of the
+posterior is equal to the values specified in the argument ci.level (usually 0.025 and 0.975). The
 search is performed using R's optimize function.
 }
 \details{
-For each confidence limit, this function performs a binary search to evaluate the combined posterior, 
-which is obtained by first transforming the imputed-data likelihood profiles into cumulative distribution functions (CDFs), and then averaging the CDFs to obtain the CDF of the posterior. Usually, 
-the binary search manages to find the confidence intervals very quickly. The number of iterations 
-(mean and maximum) will be supplied in the output object. Further details on the method can be 
+For each confidence limit, this function performs a binary search to evaluate the combined posterior,
+which is obtained by first transforming the imputed-data likelihood profiles into cumulative distribution functions (CDFs), and then averaging the CDFs to obtain the CDF of the posterior. Usually,
+the binary search manages to find the confidence intervals very quickly. The number of iterations
+(mean and maximum) will be supplied in the output object. Further details on the method can be
 found in Heinze, Ploner and Beyea (2013).
 }
 \examples{
-#generate data set with NAs 
+#generate data set with NAs
 freq=c(5,2,2,7,5,4)
 y<-c(rep(1,freq[1]+freq[2]), rep(0,freq[3]+freq[4]), rep(1,freq[5]), rep(0,freq[6]))
 x<-c(rep(1,freq[1]), rep(0,freq[2]), rep(1,freq[3]), rep(0,freq[4]), rep(NA,freq[5]),
@@ -88,21 +88,21 @@ toymi<-list(0)
 for(i in 1:5){
   toymi[[i]]<-toy
   y1<-toymi[[i]]$y==1 & is.na(toymi[[i]]$x)
-  y0<-toymi[[i]]$y==0 & is.na(toymi[[i]]$x) 
+  y0<-toymi[[i]]$y==0 & is.na(toymi[[i]]$x)
   xnew1<-rbinom(sum(y1),1,freq[1]/(freq[1]+freq[2]))
   xnew0<-rbinom(sum(y0),1,freq[3]/(freq[3]+freq[4]))
   toymi[[i]]$x[y1==TRUE]<-xnew1
   toymi[[i]]$x[y0==TRUE]<-xnew0
   }
-  
+
   # logistf analyses of each imputed data set
   fit.list<-lapply(1:5, function(X) logistf(data=toymi[[X]], y~x, pl=TRUE))
-  
+
   # CLIP confidence limits
   CLIP.confint(obj=fit.list, data = toymi)
 }
 \references{
-Heinze G, Ploner M, Beyea J (2013). Confidence intervals after multiple imputation: combining 
+Heinze G, Ploner M, Beyea J (2013). Confidence intervals after multiple imputation: combining
 profile likelihood information from logistic regressions. Statistics in Medicine, to appear.
 }
 \seealso{

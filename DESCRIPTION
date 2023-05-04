@@ -1,6 +1,6 @@
 Package: nncc
 Title: Nearest Neighbors Matching of Case-Control Data
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(person("Beau", "Bruce", email = "lue7@cdc.gov", role = c("aut", "cre")),
              person("Zhaohui", "Cui", email = "nyv5@cdc.gov", role = c("aut")),
              person("Georg", "Heinze", role="cph", comment = "Author of included logistf package"),
