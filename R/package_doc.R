@@ -28,7 +28,14 @@
 #'   \item \code{\link{make_analysis_sets}}
 #'   \item \code{\link{finalize_data}}
 #'   \item \code{\link{test_mh}}
-#'   \item \code{\link{get_paf}}
-#'   \item \code{\link{CLIP.confint.difflevel}} }
+#'   \item \code{\link{get_paf}}}
 NULL
 
+## quiets concerns of R CMD check re: the .'s and other names that appear in pipelines
+if(getRversion() >= "2.15.1")  utils::globalVariables(c(".", "case", "closest", "cntlpat", "conf.int1",
+                                                        "conf.int2", "dist", "estimate.common.odds.ratio",
+                                                        "estimate.odds.ratio", "exp_var", "fn", "idx", "ncase",
+                                                        "ncontrol", "newstrata", "nstrata", "nsubj", "or",
+                                                        "p.value", "p_j", "p_j_R_j", "prob", "qcase", "strata",
+                                                        "sub_case", "total_case", "val", "var", "xmax", "xmin",
+                                                        "ymax", "ymin"))

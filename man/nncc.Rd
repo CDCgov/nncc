@@ -34,7 +34,6 @@ Coauthor: Zhaohui Cui
   \item \code{\link{make_analysis_sets}}
   \item \code{\link{finalize_data}}
   \item \code{\link{test_mh}}
-  \item \code{\link{get_paf}}
-  \item \code{\link{CLIP.confint.difflevel}} }
+  \item \code{\link{get_paf}}}
 }
 

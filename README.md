@@ -24,7 +24,7 @@ Beau B. Bruce, MD, PhD <lue7@cdc.gov>; CDC/NCEZID/DFWED/EDEB
 install.packages("nncc")
 
 # Or the development version from GitHub
-devtools::install_github("CDCgov/nncc")
+devtools::install_github("bbbruce/nncc")
 ```
 
 ## Vignettes
@@ -71,17 +71,18 @@ information. All material and community participation is covered by the
 and [Code of
 Conduct](https://github.com/CDCgov/template/blob/master/code-of-conduct.md).
 For more information about CDC’s privacy policy, please visit
-[https://www.cdc.gov/other/privacy.html](https://www.cdc.gov/other/privacy.html).
+<https://www.cdc.gov/other/privacy.html>.
 
 ## Contributing Standard Notice
 
 Anyone is encouraged to contribute to the repository by
-[forking](https://docs.github.com/articles/fork-a-repo/) and submitting a
-pull request. (If you are new to GitHub, you might start with a [basic
-tutorial](https://docs.github.com/articles/set-up-git/)). By contributing
-to this project, you grant a world-wide, royalty-free, perpetual,
-irrevocable, non-exclusive, transferable license to all users under the
-terms of the [Apache Software License
+[forking](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+and submitting a pull request. (If you are new to GitHub, you might
+start with a [basic
+tutorial](https://docs.github.com/en/get-started/quickstart/set-up-git)).
+By contributing to this project, you grant a world-wide, royalty-free,
+perpetual, irrevocable, non-exclusive, transferable license to all users
+under the terms of the [Apache Software License
 v2](https://www.apache.org/licenses/LICENSE-2.0.html) or later.
 
 All comments, messages, pull requests, and other submissions received

@@ -1,11 +1,8 @@
 Package: nncc
 Title: Nearest Neighbors Matching of Case-Control Data
-Version: 1.0.1
+Version: 2.0.0
 Authors@R: c(person("Beau", "Bruce", email = "lue7@cdc.gov", role = c("aut", "cre")),
-             person("Zhaohui", "Cui", email = "nyv5@cdc.gov", role = c("aut")),
-             person("Georg", "Heinze", role="cph", comment = "Author of included logistf package"),
-             person("Meinhard", "Ploner", role="cph", comment = "Author of included logistf package"),
-             person("Lena", "Jiricka", role="cph", comment = "Author of included logistf package")
+             person("Zhaohui", "Cui", email = "nyv5@cdc.gov", role = c("aut"))
              )
 Description: Provides nearest-neighbors matching and 
     analysis of case-control data. Cui, Z., Marder, E. P., Click, E. S., 
@@ -22,15 +19,14 @@ Imports:
     ggplot2,
     cluster,
     rlang,
-    mgcv,
-    stats,
-    formula.tools,
-    mice
-RoxygenNote: 7.2.1
+    stats
+RoxygenNote: 7.2.3
 Suggests: 
     rmarkdown,
     knitr,
     future,
     future.batchtools,
+    logistf,
+    mice,
     survival
 VignetteBuilder: knitr
